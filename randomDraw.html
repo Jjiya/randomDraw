@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>랜덤 뽑기</title>
+</head>
+<body>
+    <fieldset>
+        <legend>랜덤 뽑기</legend>
+        <form name="frm1" method="get" action="draw">
+            <p>누가 뽑힐까! 하기 싫은 일이 있을 때 미뤄보자</p>
+            내기 이름: <input name="what" type="text" placeholder="ex) 심부름 다녀오기"><br>
+            몇 명이 걸리나요? 
+            <!-- <div id="num"></div> -->
+            <select name="peopleResult" class="peopleResult" id="num" onclick="number(this.form)">
+				<!-- <option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option> -->
+			</select> <br>
+            참여 명단 <input class="peopleList" type="button" value="인원 추가하기" onclick="input_append(this.form)">
+            <b>입력은 맨 마지막에 하세요!!!</b> <br> 
+                <div id="append">  </div>
+            <input type="button" value="인원 초기화" onclick="input_clear()">
+            <br>
+            <!-- 내기 참여 인원: <select name="people" id="people">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            </select><br> -->
+            <input type="submit" value="뽑기 시작!">
+        </form>
+    </fieldset>
+
+    <script>
+        cnt = 0;
+        append = document.getElementById("append");
+
+        window.onload = function() {
+        	num = document.getElementById("num");
+            //
+            for(var i=1; i<=30; i++){
+                num.innerHTML += "<option name='"+i+"'>"+i+"</option>";
+            }
+		}
+        
+        function input_append(form){
+            cnt++;
+            append.innerHTML += ' '+ cnt + "-<input type='text' name='peopleList' placeholder="+cnt+"번째>";
+        }
+        
+        function input_clear() {
+            //append.parentNode.removeChild(append);
+            append.innerHTML = "";
+            cnt=0;
+		}
+
+    </script>
+</body>
+</html>
